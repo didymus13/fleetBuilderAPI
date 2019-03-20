@@ -8,6 +8,7 @@ require('./config/database');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const shipsRouter = require('./routes/ships');
+const upgradeRouter = require('./routes/upgrades');
 
 var app = express();
 
@@ -20,5 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/ships', shipsRouter);
+app.use('/upgrades', upgradeRouter);
 
 module.exports = app;
