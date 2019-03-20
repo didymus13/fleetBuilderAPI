@@ -5,10 +5,12 @@ var path = require('path');
 const bodyParser = require('body-parser')
 var logger = require('morgan');
 require('./config/database');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const shipsRouter = require('./routes/ships');
 const upgradeRouter = require('./routes/upgrades');
+const fleetRouter = require('./routes/fleets');
 
 var app = express();
 
@@ -22,5 +24,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/ships', shipsRouter);
 app.use('/upgrades', upgradeRouter);
+app.use('/fleets', fleetRouter);
 
 module.exports = app;
