@@ -1,4 +1,4 @@
-const Ship = require('../modles/Ship');
+const Ship = require('../models/Ship');
 
 exports.fetchAll = function(req, res, next)  {
   Ship.find(req.query, function(err, ships) {
