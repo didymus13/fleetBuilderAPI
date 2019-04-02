@@ -8,6 +8,7 @@ router.route('/')
 
 router.route('/:id')
   .get(fleetController.fetch)
-  .put(fleetController.update);
+  .put(fleetController.update)
+  .delete(fleetController.destroy);
 
 module.exports = router;

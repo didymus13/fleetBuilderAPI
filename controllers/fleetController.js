@@ -27,3 +27,11 @@ exports.update = function(req, res, next) {
     return res.json(fleet)
   })
 };
+
+exports.destroy = function(req, res, next) {
+  Fleet.findByIdAndDelete(req.params.id, (err, fleet) => {
+    if (err) return res.json(err)
+    if (!fleet) return res.sendStatus(404)
+    return res.sendStatus(204)
+  })
+}
