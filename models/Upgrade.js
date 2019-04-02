@@ -13,7 +13,21 @@ const UpgradeSchema = new Schema({
     }
   },
   image: { type: String, required: true },
-  isUnique: { type: Boolean, default: false }
+  isUnique: { type: Boolean, default: false },
+  faction: {
+    type: String,
+    validator: function(v) {
+      return /rebel|imperial|none/.test(v)
+    },
+    default: 'none'
+  },
+  forSize: {
+    type: String,
+    validator: function(v) {
+      return /F|S|M|L|H/.test(v)
+    }
+  },
+  restrictions: [{ type: String, default: "none" }]
 });
 
 module.exports = mongoose.model('Upgrade', UpgradeSchema)

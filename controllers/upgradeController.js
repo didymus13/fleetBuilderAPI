@@ -1,6 +1,10 @@
-const Upgrade = require('../models/Upgrade');
+const Upgrade = require('../models/Upgrade')
+const _ = require('lodash')
 
 exports.fetchAll = function(req, res, next) {
+  if (req.query.restrictions) {
+    req.query = _.assign(req.query, { restrictions: { $in: req.query.restrictions } })
+  }
   Upgrade.find(req.query, function(err, upgrades) {
     if (err) return res.json(err)
     return res.json(upgrades)

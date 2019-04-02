@@ -19,6 +19,7 @@ const ShipSchema = mongoose.Schema({
   },
   slots: [String],
   image: { type: String, required: true },
-  isUnique: { type: Boolean, default: false }
+  isUnique: { type: Boolean, default: false },
+  keywords: [String]
 })
 module.exports = mongoose.model('Ship', ShipSchema)
